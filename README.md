@@ -4,13 +4,16 @@ This is a github repo for recording my workflow, for possible use of diffusion m
 ## Whats a Diffusion model
 In short, a model trained on noise image to try reproduce the original image that have no noise added, which the diffusion model would be trained in x step(x=infinity in original paper), this nature means diffusion models at no point or possibility to be hundred percent to be able to reproduce exact same picture from dataset(hence bad hands you see), thus this repo exist to show how and what i think it would be possible to be used in animation industry.
 
-## Special thanks to following personals
-kohakublueleaf(https://github.com/KohakuBlueleaf) for helping in giving advice to general diffusion related question, also he is about to make extune, which i would provide dataset for
-neggles(https://github.com/neggles) for help in setting up my wsl2 docker for sd and all along help in multiple aspect including letting me run stuff on her 4090
-Nocrypt(https://github.com/NoCrypt) for making amazing colab and points out mistake during modifying script for frame interpolation
-6DammK9(https://github.com/6DammK9) for feeding me the red pill and helping me in another project i work on
-cybermeow for helping me interview his professional lead animator brother in the industry so i know how some in depth anime is made
-kotek_mlotek for lending his 3090 for testing and help in making lora
+## Special thanks to following personals(alphabetical order)
+- cybermeow for helping me interview his professional lead animator brother in the industry so I know how some in-depth anime is made
+- kotek_mlotek for lending his 3090 for testing and help in making lora
+- KohakuBlueleaf (https://github.com/KohakuBlueleaf) for helping in giving advice on general diffusion-related questions, also about to make extune, for which I would provide the dataset
+- neggles (https://github.com/neggles) for help in setting up my WSL2 Docker for SD and assistance in multiple aspects, including letting me run stuff on her 4090
+- Nocrypt (https://github.com/NoCrypt) for creating amazing colab and pointing out mistakes during modifying scripts for frame interpolation
+- toyxyz (https://twitter.com/toyxyz3) for teaching me what a segmentation mask is, none of this would be possible without his explanation to me as a noob back then
+- UuuNyaa (https://github.com/UuuNyaa) for his automation in the process of segmentation modification in 3D models, a main part of the workflow which allows us to do a lot, plus teaching me a lot of MMD-related things
+- 6DammK9 (https://github.com/6DammK9) for feeding me the red pill and helping me in another project I work on
+
 
 
 ## Overview of Workflow
