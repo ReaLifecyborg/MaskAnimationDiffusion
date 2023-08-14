@@ -27,7 +27,7 @@ In short, a model trained on noise image to try reproduce the original image tha
 8. Auto perfect crop/recoloring for character with scripts(as we prepared the perfect mask, we can use it to do background removal)
 9. Feed the output to blender for visual effects, possible light effect manupulation
 
-## What you would need
+## What you(or your team) would need
 1. Patience and lot of time testing what fit your taste
 2. A GPU with 24G/more vram(altho its able to run in 12G vram but you would miss out the hires fix)
 3. Long term mental support and enough 3D software experience to at least make a short 3d movie, or have a team to do that for you
@@ -35,3 +35,16 @@ In short, a model trained on noise image to try reproduce the original image tha
 5. Experience with Automatic1111's stable diffusion webui as we would require it to work before comfy allow advance setting for controlnet
 
 ## General Explaination
+As the nature of Diffusion model is that, its always unstable, we need a way to force it to do what we want it to.In this aspect, controlnet is a method of altering and adding conditions for the diffusion model. Within all the models in controlnet, the following stands out to be the most influencial and my personal pick for the workflow:
+- segmentation, this is the backbone of everything, without this, it would be almost impossible to keep it all in shape, it defines areas of object, hence keeping absolute shape of an object in the output, this is what i abused to force diffusion model to generate fingers in allign to my 3d assets
+- lineartanime, this is what allowed more stylizing than canny, the previous controlnet i used alongside segmentation to provide lines to the shape, however we dont want this to be overpowering the prompt so we would do some tricky thing with it later
+- reference-only, tehcnically not a control net model,but a preprocessor that require no model to run, hence not loading model into vram, this influecne coloring, altho its far from enough for our workflow, its the only choice for now
+- temporalnetv2, a controlnet model for frame interpolation, this would require its own part in the following read, it also require running from api and a custom version of controlnet extension
+- normal, this controlnet read normal mask as input, i have not yet tested this and its on my next to-do list, it should be theoretically do better shape and lighting for the output
+- light, this is a rare controlnet that never got finished and is still in beta version, links at (https://aigc.ioclab.com/sd-showcase/light_controlnet.html), it was originally a consideration for light effect but as far as it goes, i need to observe if it ever gonna be finished
+
+With all these controlnet methods, we can do a lot of influence to what the diffusion model would output to us, in another word, do animation in shape.
+And what we need to do to make it all work, we prepare dataset for every single frame(with blender it should be easy for professional 3D artist, or if you are not experienced in 3D like me, you can use mmd tool and mmd motion distribution for it) then automatically output mask for every single frame we need, then we shove it into stable diffusion so it does its magic and we wait for after editing with help of automated scripts.
+The overall aiming for this workflow is to make it work for individual animators to save them time and money, or as a prototype of mass production workcycle for animation studio for reduce labour cost and fasten the production(however its now far from industry standard for now)
+
+
